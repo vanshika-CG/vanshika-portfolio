@@ -100,22 +100,29 @@ export default function Hero() {
           transition={{ delay: 0.8 }}
           className="flex space-x-4 justify-center mb-12"
         >
-          <Button variant="outline" size="icon" className="rounded-full">
-            <Github className="h-5 w-5" />
-          </Button>
-          <Button variant="outline" size="icon" className="rounded-full">
-            <Linkedin className="h-5 w-5" />
-          </Button>
-          <Button variant="outline" size="icon" className="rounded-full">
-            <Twitter className="h-5 w-5" />
-          </Button>
+         <Button variant="outline" size="icon" className="rounded-full">
+  <a href="https://github.com/vanshika-CG" target="_blank" rel="noopener noreferrer">
+    <Github className="h-5 w-5" />
+  </a>
+</Button>
+<Button variant="outline" size="icon" className="rounded-full">
+  <a href="https://www.linkedin.com/in/vanshika-jangam-0a232332a/" target="_blank" rel="noopener noreferrer">
+    <Linkedin className="h-5 w-5" />
+  </a>
+</Button>
+<Button variant="outline" size="icon" className="rounded-full">
+  <a href="https://x.com/vanshikajangam" target="_blank" rel="noopener noreferrer">
+    <Twitter className="h-5 w-5" />
+  </a>
+</Button>
+
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
           <Button
             className="rounded-full px-8"
             onClick={() => {
-              document.querySelector("#about")?.scrollIntoView({
+              document.querySelector("#projects")?.scrollIntoView({
                 behavior: "smooth",
               })
             }}

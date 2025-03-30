@@ -36,10 +36,13 @@ export default function Resume() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="rounded-full">
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
-            </Button>
+          <Button asChild className="rounded-full">
+  <a href="/resume.pdf" download="My_Resume.pdf">
+    <Download className="mr-2 h-4 w-4" />
+    Download Resume
+  </a>
+</Button>
+
             <Button variant="outline" className="rounded-full">
               <ExternalLink className="mr-2 h-4 w-4" />
               View Online
@@ -63,7 +66,7 @@ export default function Resume() {
               <CardContent className="p-0">
                 <div className="aspect-[3/4] bg-muted">
                   <img
-                    src="/placeholder.svg?height=600&width=450"
+                    src="/resume.png?height=600&width=450"
                     alt="Resume Preview"
                     className="w-full h-full object-cover"
                   />
@@ -77,10 +80,13 @@ export default function Resume() {
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Button variant="secondary" className="rounded-full">
-                <Download className="mr-2 h-4 w-4" />
-                Download Resume
-              </Button>
+              <Button asChild variant="secondary" className="rounded-full">
+    <a href="/resume.pdf" download="My_Resume.pdf">
+      <Download className="mr-2 h-4 w-4" />
+      Download Resume
+    </a>
+  </Button>
+
             </motion.div>
           </div>
         </motion.div>

@@ -81,19 +81,11 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-medium">Email</h4>
-                <p className="text-muted-foreground">vanshika.jangam@example.com</p>
+                <p className="text-muted-foreground">vanshika.jangamcg@gmail.com</p>
               </div>
             </div>
 
-            <div className="flex items-center">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                <Phone className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <h4 className="font-medium">Phone</h4>
-                <p className="text-muted-foreground">+91 98765 43210</p>
-              </div>
-            </div>
+            
 
             <div className="flex items-center">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">

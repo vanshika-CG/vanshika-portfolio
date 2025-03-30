@@ -7,58 +7,69 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { X, ExternalLink, Github, ChevronLeft, ChevronRight, Filter } from "lucide-react"
 
+
 const projects = [
   {
     id: 1,
     title: "CodeChisel",
     description:
       "A coding education platform designed to help beginners learn programming through interactive exercises and challenges.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/codechisel.png",
     tags: ["React", "Node.js", "MongoDB", "Express"],
     category: "Full Stack",
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/vanshika-CG/codechisel",
   },
   {
     id: 2,
     title: "Image Explorer",
     description:
       "An Unsplash API-based search application that allows users to discover and download high-quality images.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/unsplash.png",
     tags: ["React", "Unsplash API", "CSS", "JavaScript"],
     category: "Frontend",
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/vanshika-CG/unsplash_api",
   },
   {
     id: 3,
     title: "Amul Clone",
     description: "A reimagined website for Amul with modern design and improved user experience.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/amul.png",
     tags: ["HTML", "CSS", "JavaScript"],
     category: "Frontend",
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/vanshika-CG/amulwebsite",
   },
   {
     id: 4,
-    title: "YouTube Clone",
-    description: "A React-based YouTube clone with video playback, search, and recommendation features.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "YouTube API", "CSS", "Firebase"],
-    category: "Frontend",
-    demoLink: "#",
-    githubLink: "#",
-  },
-  {
-    id: 5,
     title: "Multi-Category Web",
     description: "A meal and cocktail explorer application that allows users to discover recipes and ingredients.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/router.png",
     tags: ["React", "API Integration", "CSS", "JavaScript"],
     category: "Frontend",
     demoLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/vanshika-CG/react-router-task",
+  },
+  {
+    id: 5,
+    title: "YouTube Clone",
+    description: "A React-based YouTube clone with video playback, search, and recommendation features.",
+    image: "/youtube.png",
+    tags: ["React", "YouTube API", "CSS", "Firebase"],
+    category: "Frontend",
+    demoLink: "#",
+    githubLink: "https://github.com/vanshika-CG/react-youtube",
+  },
+  {
+    id: 6,
+    title: "Spotify Clone",
+    description: "A React-based YouTube clone with video playback, search, and recommendation features.",
+    image: "/spotify.png",
+    tags: ["React", "CSS"],
+    category: "Frontend",
+    demoLink: "#",
+    githubLink: "https://github.com/vanshika-CG/react-spotify",
   },
 ]
 
@@ -249,7 +260,7 @@ export default function Projects() {
                       <img
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        className="w-full h-full object-fit transition-transform duration-500 hover:scale-110"
                       />
                     </div>
                     <div className="p-6 flex flex-col">
