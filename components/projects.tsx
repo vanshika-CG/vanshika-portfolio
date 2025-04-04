@@ -28,7 +28,7 @@ const projects = [
     image: "/unsplash.png",
     tags: ["React", "Unsplash API", "CSS", "JavaScript"],
     category: "Frontend",
-    demoLink: "#",
+    demoLink: "https://image-explore.netlify.app/",
     githubLink: "https://github.com/vanshika-CG/unsplash_api",
   },
   {
