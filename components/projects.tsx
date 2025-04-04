@@ -17,7 +17,7 @@ const projects = [
     image: "/codechisel.png",
     tags: ["React", "Node.js", "MongoDB", "Express"],
     category: "Full Stack",
-    demoLink: "#",
+    demoLink: "https://codechisel-24.netlify.app/",
     githubLink: "https://github.com/vanshika-CG/codechisel",
   },
   {
@@ -33,16 +33,6 @@ const projects = [
   },
   {
     id: 3,
-    title: "Amul Clone",
-    description: "A reimagined website for Amul with modern design and improved user experience.",
-    image: "/amul.png",
-    tags: ["HTML", "CSS", "JavaScript"],
-    category: "Frontend",
-    demoLink: "#",
-    githubLink: "https://github.com/vanshika-CG/amulwebsite",
-  },
-  {
-    id: 4,
     title: "Multi-Category Web",
     description: "A meal and cocktail explorer application that allows users to discover recipes and ingredients.",
     image: "/router.png",
@@ -50,6 +40,16 @@ const projects = [
     category: "Frontend",
     demoLink: "#",
     githubLink: "https://github.com/vanshika-CG/react-router-task",
+  },
+  {
+    id: 4,
+    title: "Amul Clone",
+    description: "A reimagined website for Amul with modern design and improved user experience.",
+    image: "/amul.png",
+    tags: ["HTML", "CSS", "JavaScript"],
+    category: "Frontend",
+    demoLink: "https://amulclone.netlify.app/",
+    githubLink: "https://github.com/vanshika-CG/amulwebsite",
   },
   {
     id: 5,
@@ -71,9 +71,30 @@ const projects = [
     demoLink: "#",
     githubLink: "https://github.com/vanshika-CG/react-spotify",
   },
+  {
+    id: 7,
+    title: "Tic-Tac",
+    description: "A classic Tic-Tac-Toe game built using React. Play against a friend in this fun and simple 3x3 grid challenge.",
+    image: "/tictac.png",
+    tags: ["React", "CSS"],
+    category: "Fungame",
+    demoLink: "https://tictacc-toe.netlify.app/",
+    githubLink: "https://github.com/vanshika-CG/TicTacToe",
+  },
+  {
+    id: 8,
+    title: "Connect-Four",
+    description: "A React-powered Connect Four game with dynamic interactions. Drop your discs strategically and aim to connect four in a row!",
+    image: "/connect.png",
+    tags: ["React", "CSS"],
+    category: "Fungame",
+    demoLink: "https://connet-game.netlify.app/",
+    githubLink: "https://github.com/vanshika-CG/connect-four-game",
+  },
+  
 ]
 
-const categories = ["All", "Frontend", "Full Stack", "Backend"]
+const categories = ["All", "Frontend", "Full Stack" , "Fungame"]
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null)
