@@ -38,7 +38,7 @@ const projects = [
     image: "/router.png",
     tags: ["React", "API Integration", "CSS", "JavaScript"],
     category: "Frontend",
-    demoLink: "#",
+    demoLink: "https://multi-category.netlify.app/",
     githubLink: "https://github.com/vanshika-CG/react-router-task",
   },
   {
@@ -58,7 +58,7 @@ const projects = [
     image: "/youtube.png",
     tags: ["React", "YouTube API", "CSS", "Firebase"],
     category: "Frontend",
-    demoLink: "#",
+    demoLink: "https://utubee-clonee.netlify.app/",
     githubLink: "https://github.com/vanshika-CG/react-youtube",
   },
   {
@@ -68,7 +68,7 @@ const projects = [
     image: "/spotify.png",
     tags: ["React", "CSS"],
     category: "Frontend",
-    demoLink: "#",
+    demoLink: "https://spotifye-clone.netlify.app/",
     githubLink: "https://github.com/vanshika-CG/react-spotify",
   },
   {
