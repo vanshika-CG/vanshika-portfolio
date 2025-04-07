@@ -91,10 +91,50 @@ const projects = [
     demoLink: "https://connet-game.netlify.app/",
     githubLink: "https://github.com/vanshika-CG/connect-four-game",
   },
+  {
+    id: 9,
+    title: "chess",
+    description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
+    image: "/chess.png",
+    tags: ["Html", "CSS"],
+    category: "Small-Projects",
+    demoLink: "https://chessey.netlify.app/",
+    githubLink: "https://github.com/vanshika-CG/chess",
+  },
+  {
+    id: 10,
+    title: "crimeshield",
+    description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
+    image: "/",
+    tags: ["Figma"],
+    category: "Figma",
+    demoLink: "https://www.figma.com/design/ADRfcncMzSKA30LYryBmmg/Untitled?node-id=19-23&t=Lq3s8jzVswcHaHG1-1",
+
+  },
+  {
+    id: 11,
+    title: "Elite-Style",
+    description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
+    image: "/elite.png",
+    tags: ["Figma"],
+    category: "Figma",
+    demoLink: "https://www.figma.com/design/Oa1gKqYgu7LzPwcV8zbFQT/Elite-Style?node-id=203-4&t=VjQ35KUnQyNWSjcp-1",
+
+  },
+  {
+    id: 12,
+    title: "Dual Sense",
+    description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
+    image: "/game.png",
+    tags: ["Figma"],
+    category: "Figma",
+    demoLink: "https://www.figma.com/design/UFM5eX0WPNkmk1oOz4HZKr/Untitled?node-id=0-1&t=wO0kzhAmr6YckSTC-1",
+
+  },
   
 ]
 
-const categories = ["All", "Frontend", "Full Stack" , "Fungame"]
+const categories = ["All", "Frontend", "Full Stack" , "Small-Projects" ,"Fungame","Figma"]
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null)
