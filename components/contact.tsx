@@ -10,6 +10,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import emailjs from "emailjs-com" // or from "@emailjs/browser"
+
 
 export default function Contact() {
   const { toast } = useToast()
@@ -29,24 +31,42 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    })
-
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
-
-    setIsSubmitting(false)
+  
+    try {
+      const result = await emailjs.send(
+        "service_3tys936", // replace with actual ID
+        "template_u7ttqb8", // replace with actual ID
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "Xi9hF2ufaPNky0Pyf" // replace with actual key
+      )
+  
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      })
+  
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      })
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
+  
 
   return (
     <div className="container mx-auto">

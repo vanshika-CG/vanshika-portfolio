@@ -93,6 +93,16 @@ const projects = [
   },
   {
     id: 9,
+    title: "calculator",
+    description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
+    image: "/cal.png",
+    tags: ["Html", "CSS"],
+    category: "Small-Projects",
+    demoLink: "https://calculatorrq.netlify.app/",
+    githubLink: "https://github.com/vanshika-CG/calculator",
+  },
+  {
+    id: 10,
     title: "chess",
     description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
     image: "/chess.png",
@@ -101,8 +111,9 @@ const projects = [
     demoLink: "https://chessey.netlify.app/",
     githubLink: "https://github.com/vanshika-CG/chess",
   },
+
   {
-    id: 10,
+    id: 11,
     title: "crimeshield",
     description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
     image: "/",
@@ -112,7 +123,7 @@ const projects = [
 
   },
   {
-    id: 11,
+    id: 12,
     title: "Elite-Style",
     description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
     image: "/elite.png",
@@ -122,7 +133,7 @@ const projects = [
 
   },
   {
-    id: 12,
+    id: 13,
     title: "Dual Sense",
     description: "A beautifully styled chessboard built with HTML, CSS, and JavaScript. Features include drag-and-drop piece movement, board rotation, and responsive design for an interactive experience.",
     image: "/game.png",
