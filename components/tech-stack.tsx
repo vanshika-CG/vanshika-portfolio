@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
@@ -23,74 +21,75 @@ export default function TechStack() {
   const [hoveredTech, setHoveredTech] = useState<string | null>(null)
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-20">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">Tech Stack</h2>
-        <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+        <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+          Tech Stack
+        </h2>
+        <div className="h-1 w-32 bg-primary/50 mx-auto rounded-full"></div>
       </motion.div>
 
       <div className="relative">
         <div className="absolute inset-0 pointer-events-none">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {Array.from({ length: 25 }).map((_, i) => (
             <div
               key={i}
               className="bubble"
               style={{
-                width: `${Math.random() * 100 + 50}px`,
-                height: `${Math.random() * 100 + 50}px`,
+                width: `${Math.random() * 120 + 60}px`,
+                height: `${Math.random() * 120 + 60}px`,
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                opacity: `${Math.random() * 0.3 + 0.1}`,
+                animationDelay: `${Math.random() * 8}s`,
+                opacity: `${Math.random() * 0.3 + 0.2}`,
               }}
             />
           ))}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 relative z-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 relative z-10">
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 200 }}
               viewport={{ once: true }}
               onMouseEnter={() => setHoveredTech(tech.name)}
               onMouseLeave={() => setHoveredTech(null)}
             >
               <Card
-                className={`h-full overflow-hidden transition-all duration-300 hover:shadow-lg border-2 ${
-                  hoveredTech === tech.name ? "border-primary scale-105" : "border-transparent"
+                className={`card-glow h-full bg-background/90 backdrop-blur-md border-2 ${
+                  hoveredTech === tech.name ? "border-primary/60" : "border-transparent"
                 }`}
               >
                 <CardContent className="p-6 flex flex-col items-center text-center">
                   <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center mb-4 text-2xl"
+                    className="w-20 h-20 rounded-full flex items-center justify-center mb-4 text-3xl shadow-md"
                     style={{
-                      backgroundColor: `${tech.color}33`,
+                      backgroundColor: `${tech.color}22`,
                       border: `2px solid ${tech.color}`,
                     }}
                   >
                     {tech.icon}
                   </div>
-                  <h3 className="font-bold mb-2">{tech.name}</h3>
-
+                  <h3 className="font-bold text-lg mb-3">{tech.name}</h3>
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{
                       opacity: hoveredTech === tech.name ? 1 : 0,
                       height: hoveredTech === tech.name ? "auto" : 0,
                     }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-sm text-muted-foreground mt-2">{tech.description}</p>
+                    <p className="text-sm text-muted-foreground">{tech.description}</p>
                   </motion.div>
                 </CardContent>
               </Card>
@@ -101,4 +100,3 @@ export default function TechStack() {
     </div>
   )
 }
-

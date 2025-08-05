@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -33,59 +31,66 @@ const skills = [
 
 export default function About() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-20">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">About Me</h2>
-        <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+        <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+          About Me
+        </h2>
+        <div className="h-1 w-32 bg-primary/50 mx-auto rounded-full"></div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold mb-6 text-primary">Education Journey</h3>
-          <div className="relative pl-8 border-l-2 border-primary/30 space-y-8">
+          <h3 className="text-3xl font-bold mb-8 text-primary">Education Journey</h3>
+          <div className="relative pl-10 border-l-4 border-primary/40 space-y-10">
             {educationData.map((item, index) => (
-              <div key={index} className="relative">
-                <div className="absolute -left-[25px] h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="relative"
+              >
+                <div className="absolute -left-[22px] h-12 w-12 rounded-full bg-primary/30 flex items-center justify-center">
                   <div className="h-6 w-6 rounded-full bg-primary"></div>
                 </div>
-                <Card className="overflow-hidden">
+                <Card className="card-glow bg-background/80 backdrop-blur-sm">
                   <CardContent className="p-6">
                     <h4 className="text-xl font-bold">{item.degree}</h4>
-                    <p className="text-muted-foreground">{item.institution}</p>
-                    <div className="flex justify-between mt-2">
-                      <Badge variant="outline">{item.period}</Badge>
-                      <Badge>{item.details}</Badge>
+                    <p className="text-muted-foreground mb-4">{item.institution}</p>
+                    <div className="flex justify-between gap-4">
+                      <Badge variant="outline" className="text-sm">{item.period}</Badge>
+                      <Badge className="text-sm">{item.details}</Badge>
                     </div>
                   </CardContent>
                 </Card>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold mb-6 text-primary">Skills</h3>
-          <div className="relative h-[400px]">
+          <h3 className="text-3xl font-bold mb-8 text-primary">Skills</h3>
+          <div className="relative h-[450px] circular-grid">
             {skills.map((skill, index) => {
-              // Calculate position in a circular pattern
               const angle = (index / skills.length) * Math.PI * 2
-              const radius = 150
+              const radius = 180
               const x = Math.cos(angle) * radius
               const y = Math.sin(angle) * radius
 
@@ -97,32 +102,25 @@ export default function About() {
                     left: `calc(50% + ${x}px)`,
                     top: `calc(50% + ${y}px)`,
                   }}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
                   transition={{
-                    duration: 0.5,
-                    delay: 0.1 * index,
+                    duration: 0.6,
+                    delay: index * 0.1,
                     type: "spring",
-                    stiffness: 260,
+                    stiffness: 200,
                     damping: 20,
                   }}
                   viewport={{ once: true }}
-                  whileHover={{
-                    scale: 1.2,
-                    zIndex: 10,
-                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-                  }}
                 >
-                  <div className="bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 whitespace-nowrap">
+                  <div className="bg-background/90 backdrop-blur-sm border border-primary/30 rounded-full px-5 py-3 text-sm font-medium shadow-md">
                     {skill}
                   </div>
                 </motion.div>
               )
             })}
-            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-24 w-24 rounded-full bg-primary/20 flex items-center justify-center">
-              <div className="h-16 w-16 rounded-full bg-primary/30 flex items-center justify-center">
-                <div className="h-8 w-8 rounded-full bg-primary"></div>
-              </div>
+            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-32 w-32 rounded-full bg-gradient-to-br from-primary/40 to-purple-400/40 flex items-center justify-center">
+              <div className="h-20 w-20 rounded-full bg-primary/50"></div>
             </div>
           </div>
         </motion.div>
@@ -130,4 +128,3 @@ export default function About() {
     </div>
   )
 }
-

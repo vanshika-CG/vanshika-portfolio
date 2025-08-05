@@ -5,47 +5,47 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 222.2 47.4% 11.2%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 222.2 47.4% 11.2%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 262 83.3% 57.8%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --primary: 260 80% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 85.7% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 262 83.3% 57.8%;
-    --radius: 0.5rem;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 260 80% 60%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 222.2 47.4% 11.2%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 222.2 47.4% 11.2%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 222.2 47.4% 11.2%;
     --popover-foreground: 0 0% 98%;
-    --primary: 263 70% 50.4%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 240 3.7% 15.9%;
+    --primary: 260 80% 70%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 222 13% 15%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --muted: 222 13% 15%;
+    --muted-foreground: 220 8.9% 64.9%;
+    --accent: 222 13% 15%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 263 70% 50.4%;
+    --border: 222 13% 15%;
+    --input: 222 13% 15%;
+    --ring: 260 80% 70%;
   }
 }
 
@@ -54,46 +54,50 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
   }
 }
 
 .bubble {
   position: absolute;
   border-radius: 50%;
-  background: rgba(123, 97, 255, 0.2);
-  animation: float 8s infinite ease-in-out;
+  background: linear-gradient(135deg, rgba(123, 97, 255, 0.3), rgba(255, 105, 180, 0.2));
+  animation: float 10s infinite ease-in-out;
+  will-change: transform;
 }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) translateX(0);
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
   }
   25% {
-    transform: translateY(-20px) translateX(10px);
+    transform: translateY(-30px) translateX(15px) rotate(5deg);
   }
   50% {
-    transform: translateY(0) translateX(20px);
+    transform: translateY(0) translateX(25px) rotate(0deg);
   }
   75% {
-    transform: translateY(20px) translateX(10px);
+    transform: translateY(30px) translateX(15px) rotate(-5deg);
   }
 }
 
 .tech-bubble {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tech-bubble:hover {
-  transform: scale(1.2);
-  z-index: 10;
+  transform: scale(1.3) rotate(5deg);
+  box-shadow: 0 8px 32px rgba(123, 97, 255, 0.3);
+  z-index: 20;
 }
 
 .circular-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
 }
 
 @media (min-width: 768px) {
@@ -101,11 +105,40 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 3rem;
   }
 }
 
-/* 3D Carousel Styles */
 .perspective {
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
+.card-glow {
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 8px 32px rgba(123, 97, 255, 0.3), 0 0 20px rgba(255, 105, 180, 0.2);
+  transform: translateY(-5px);
+}
+
+.button-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.5s ease;
+}
+
+.button-glow:hover::after {
+  transform: translateX(100%) rotate(45deg);
+}

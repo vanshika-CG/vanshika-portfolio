@@ -1,16 +1,11 @@
-"use client"
-
-import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react"
+import { Mail, MapPin, Send, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
-import emailjs from "emailjs-com" // or from "@emailjs/browser"
 
 
 export default function Contact() {
@@ -31,25 +26,26 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-  
+
     try {
       const result = await emailjs.send(
-        "service_3tys936", // replace with actual ID
-        "template_u7ttqb8", // replace with actual ID
+        "service_3tys936",
+        "template_u7ttqb8",
         {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        "Xi9hF2ufaPNky0Pyf" // replace with actual key
+        "Xi9hF2ufaPNky0Pyf"
       )
-  
+
       toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Message Sent!",
+        description: "I'll get back to you soon.",
+        className: "bg-primary/90 text-white",
       })
-  
+
       setFormData({
         name: "",
         email: "",
@@ -58,126 +54,127 @@ export default function Contact() {
       })
     } catch (error) {
       toast({
-        title: "Error sending message",
-        description: "Something went wrong. Please try again.",
+        title: "Error",
+        description: "Failed to send message. Please try again.",
         variant: "destructive",
       })
     } finally {
       setIsSubmitting(false)
     }
   }
-  
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-20">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">Contact Me</h2>
-        <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+        <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">
+          Let's Connect
+        </h2>
+        <div className="h-1 w-32 bg-primary/50 mx-auto rounded-full"></div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold mb-6">Get In Touch</h3>
-          <p className="text-muted-foreground mb-8">
-            Feel free to reach out to me for any questions, opportunities, or just to say hello. I'm always open to
-            discussing new projects, creative ideas, or opportunities to be part of your vision.
+          <h3 className="text-3xl font-bold mb-8 text-primary">Get In Touch</h3>
+          <p className="text-muted-foreground mb-10 text-lg">
+            I'm excited to hear about your projects, ideas, or just to have a chat. Reach out, and let's create something amazing together!
           </p>
-
-          <div className="space-y-6">
-            <div className="flex items-center">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                <Mail className="h-5 w-5 text-primary" />
+          <div className="space-y-8">
+            <motion.div
+              className="flex items-center"
+              whileHover={{ scale: 1.05, x: 10 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <div className="h-14 w-14 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                <Mail className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-medium">Email</h4>
+                <h4 className="font-semibold text-lg">Email</h4>
                 <p className="text-muted-foreground">vanshika.jangamcg@gmail.com</p>
               </div>
-            </div>
-
-            
-
-            <div className="flex items-center">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                <MapPin className="h-5 w-5 text-primary" />
+            </motion.div>
+            <motion.div
+              className="flex items-center"
+              whileHover={{ scale: 1.05, x: 10 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <div className="h-14 w-14 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                <MapPin className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-medium">Location</h4>
+                <h4 className="font-semibold text-lg">Location</h4>
                 <p className="text-muted-foreground">Gujarat, India</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <Card className="overflow-hidden border-primary/20">
-            <CardContent className="p-6">
+          <Card className="card-glow bg-background/90 backdrop-blur-md border-primary/30">
+            <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
+                    <label htmlFor="name" className="text-sm font-semibold">
                       Your Name
                     </label>
                     <Input
                       id="name"
                       name="name"
-                      placeholder="John Doe"
+                      placeholder="Your name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="rounded-lg"
+                      className="rounded-lg bg-background/50 border-primary/30 focus:ring-2 focus:ring-primary"
                     />
                   </div>
-
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">
+                    <label htmlFor="email" className="text-sm font-semibold">
                       Your Email
                     </label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder="your.email@example.com"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="rounded-lg"
+                      className="rounded-lg bg-background/50 border-primary/30 focus:ring-2 focus:ring-primary"
                     />
                   </div>
                 </div>
-
                 <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium">
+                  <label htmlFor="subject" className="text-sm font-semibold">
                     Subject
                   </label>
                   <Input
                     id="subject"
                     name="subject"
-                    placeholder="How can I help you?"
+                    placeholder="What's this about?"
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="rounded-lg"
+                    className="rounded-lg bg-background/50 border-primary/30 focus:ring-2 focus:ring-primary"
                   />
                 </div>
-
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
+                  <label htmlFor="message" className="text-sm font-semibold">
                     Message
                   </label>
                   <Textarea
@@ -187,19 +184,22 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="min-h-[120px] rounded-lg"
+                    className="min-h-[150px] rounded-lg bg-background/50 border-primary/30 focus:ring-2 focus:ring-primary"
                   />
                 </div>
-
-                <Button type="submit" className="w-full rounded-lg" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  className="w-full rounded-lg button-glow text-lg font-semibold"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                       Sending...
                     </>
                   ) : (
                     <>
-                      <Send className="mr-2 h-4 w-4" />
+                      <Send className="mr-2 h-5 w-5" />
                       Send Message
                     </>
                   )}
@@ -212,4 +212,3 @@ export default function Contact() {
     </div>
   )
 }
-
