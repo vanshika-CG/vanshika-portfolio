@@ -120,7 +120,7 @@ const projects = [
     id: 12,
     title: "CrimeShield",
     description: "UI/UX design for a security-focused application.",
-    image: "/",
+    image: "/crime.png",
     tags: ["Figma"],
     category: "Figma",
     demoLink: "https://www.figma.com/design/ADRfcncMzSKA30LYryBmmg/Untitled?node-id=19-23&t=Lq3s8jzVswcHaHG1-1",
